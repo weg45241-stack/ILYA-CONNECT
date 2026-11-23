@@ -1,0 +1,32 @@
+<Window x:Class="ILYA_CONNECT.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="ILYA CONNECT" Height="650" Width="1000" WindowStartupLocation="CenterScreen"
+ Background="#0F172A" Foreground="#F8FAFC">
+ <Grid Margin="24">
+  <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/></Grid.RowDefinitions>
+  <TextBlock Text="ILYA CONNECT" FontSize="30" FontWeight="Bold" Margin="0,0,0,12"/>
+  <Border Grid.Row="1" Background="#1D2B46" CornerRadius="14" Padding="18" Margin="0,8,0,18">
+   <StackPanel><TextBlock Text="Центр аккаунтов" FontSize="26" FontWeight="Bold"/>
+    <TextBlock x:Name="Counter" Text="0 аккаунтов подключено" Foreground="#93C5FD" FontSize="18"/></StackPanel>
+  </Border>
+  <StackPanel Grid.Row="2">
+   <GroupBox Header="Telegram" Foreground="White" Margin="0,0,0,14" Padding="12">
+    <StackPanel>
+     <TextBlock x:Name="TelegramStatus" Text="Основной: не подключён" Margin="0,4,0,10"/>
+     <WrapPanel><Button Content="Подключить основной" Click="TelegramMain_Click" Padding="14,8" Margin="0,0,8,8"/>
+      <Button Content="Подключить второй аккаунт" Click="TelegramSecond_Click" Padding="14,8" Margin="0,0,8,8"/></WrapPanel>
+    </StackPanel>
+   </GroupBox>
+   <GroupBox Header="Discord" Foreground="White" Padding="12">
+    <StackPanel>
+     <TextBlock x:Name="DiscordStatus" Text="Основной: не подключён" Margin="0,4,0,10"/>
+     <WrapPanel><Button Content="Открыть Discord" Click="DiscordMain_Click" Padding="14,8" Margin="0,0,8,8"/>
+      <Button Content="Открыть второй профиль" Click="DiscordSecond_Click" Padding="14,8" Margin="0,0,8,8"/></WrapPanel>
+    </StackPanel>
+   </GroupBox>
+   <TextBlock Text="Примечание: открытие сайта или клиента не подтверждает авторизацию. Номера, SMS-коды и пароли приложение не генерирует и не собирает."
+    TextWrapping="Wrap" Foreground="#94A3B8" Margin="0,18,0,0"/>
+  </StackPanel>
+ </Grid>
+</Window>
