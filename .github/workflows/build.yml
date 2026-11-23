@@ -1,0 +1,28 @@
+name: Build ILYA CONNECT
+
+on:
+workflow_dispatch:
+push:
+branches: [main]
+
+jobs:
+build:
+runs-on: windows-latest
+
+steps:
+  - name: Download source
+    uses: actions/checkout@v4
+
+  - name: Install .NET 8
+    uses: actions/setup-dotnet@v4
+    with:
+      dotnet-version: 8.0.x
+
+  - name: Build EXE
+    run: dotnet publish ILYA_CONNECT.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeAllContentForSelfExtract=true -o ./publish
+
+  - name: Upload EXE
+    uses: actions/upload-artifact@v4
+    with:
+      name: ILYA-CONNECT-Windows
+      path: ./publish/
